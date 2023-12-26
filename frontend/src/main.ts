@@ -1,11 +1,16 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
+import axios from 'axios'; // Import von Axios hinzugefügt
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(router)
+app.use(router);
 
-app.mount('#app')
+// Axios als $http in Vue-Instanz einbinden
+app.config.globalProperties.$http = axios;
+
+app.mount('#app');
+
