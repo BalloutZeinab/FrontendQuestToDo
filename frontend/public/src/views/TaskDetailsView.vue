@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
-import Header from '@/components/common/AppHeader.vue';
-import TaskDetails from '@/components/tasks/TaskDetails.vue';
+import TaskDetails from '../components/tasks/TaskDetails.vue';
 
 interface Task {
   id: number;

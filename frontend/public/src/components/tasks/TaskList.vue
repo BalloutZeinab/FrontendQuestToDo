@@ -1,6 +1,6 @@
 <template>
   <div class="task-list">
-    <Header />
+    <AppHeader />
     <main>
       <h2>Aufgabenübersicht</h2>
       <DateFilter @filterByDate="handleFilterByDate" />
@@ -20,10 +20,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
-import Header from '@/components/common/AppHeader.vue';
-import DateFilter from '@/components/filters/DateFilter.vue';
-import MonthFilter from '@/components/filters/MonthFilter.vue';
-import TaskListItem from '@/components/tasks/TaskListItem.vue';
+import AppHeader from "../../App.vue";
+import DateFilter from '../../components/filters/DateFilter.vue';
+import MonthFilter from '../../components/filters/MonthFilter.vue';
+import TaskListItem from '../../components/tasks/TaskListItem.vue';
+
 
 interface Task {
   id: number;

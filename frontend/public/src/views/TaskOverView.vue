@@ -7,14 +7,20 @@
       <!-- Other task details -->
     </div>
 
-    <!-- Add Task Button -->
-    <button class="add-task-button">Neue Aufgabe hinzufügen</button>
+    <!-- Add Task Button triggers TaskForm modal -->
+    <button @click="showTaskForm = true" class="add-task-button">Neue Aufgabe hinzufügen</button>
+
+    <!-- TaskForm Component -->
+    <div v-if="showTaskForm" class="task-form-container">
+      <TaskForm @close="showTaskForm = false" />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
+import TaskForm from '../components/tasks/TaskForm.vue';
 
 interface Task {
   id: number;
@@ -27,6 +33,7 @@ interface Task {
 
 const tasks = ref<Task[]>([]);
 const filteredTasks = ref<Task[]>([]);
+const showTaskForm = ref(false);
 
 const fetchTasks = async () => {
   try {
@@ -41,12 +48,6 @@ const fetchTasks = async () => {
 
 onMounted(fetchTasks);
 </script>
-
-<style scoped>
-/* Variables for the color scheme */
-/* ... rest of your styles ... */
-</style>
-
 
 <style scoped>
 /* Variables for the color scheme */

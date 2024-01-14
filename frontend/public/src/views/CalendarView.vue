@@ -12,9 +12,9 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
-import DateFilter from '@/components/filters/DateFilter.vue';
-import MonthFilter from '@/components/filters/MonthFilter.vue';
-import TaskList from '@/components/tasks/TaskList.vue';
+import DateFilter from '../components/filters/DateFilter.vue';
+import MonthFilter from '../components/filters/MonthFilter.vue';
+import TaskList from "../components/tasks/TaskList.vue";
 
 interface Task {
   id: number;
