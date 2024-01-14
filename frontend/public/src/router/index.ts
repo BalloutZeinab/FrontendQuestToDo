@@ -1,7 +1,6 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import type { RouteRecordRaw } from 'vue-router';
 
-
 import CalendarView from '../views/CalendarView.vue';
 import TaskDetailsView from '../views/TaskDetailsView.vue';
 import TaskForm from '../components/tasks/TaskForm.vue';

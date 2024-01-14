@@ -7,7 +7,7 @@
 
 
 <script setup lang="ts">
-import AppHeader from "../../dist/src/components/common/AppHeader.vue";
+import AppHeader from "../src/components/common/AppHeader.vue";
 </script>
 
 <style>
