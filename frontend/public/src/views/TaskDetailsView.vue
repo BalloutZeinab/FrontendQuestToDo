@@ -10,7 +10,6 @@ interface Task {
   startDate: string;
   endDate: string;
   completed: boolean;
-  // Weitere Eigenschaften deiner Task definieren
 }
 
 const selectedTask = ref<Task | string | string[] | null>(null);

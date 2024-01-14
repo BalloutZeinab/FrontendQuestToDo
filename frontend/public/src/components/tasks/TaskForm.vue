@@ -81,6 +81,4 @@ const isValidDate = (dateString: string) => {
 .task-form button[type="submit"]:hover {
   background-color: var(--darker-teal);
 }
-
-
 </style>

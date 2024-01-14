@@ -1,6 +1,5 @@
 <template>
   <div class="task-overview-container">
-    <!-- Loop through your tasks and render them with the 'task-card' class -->
     <div class="task-card" v-for="task in filteredTasks" :key="task.id">
       <h3>{{ task.title }}</h3>
       <p>{{ task.description }}</p>

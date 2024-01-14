@@ -19,7 +19,7 @@ import {onMounted, ref} from "vue";
 interface Task {
   id: number;
   startDate: string;
-  // Weitere Eigenschaften deiner Task definieren
+
 }
 
 const tasks = ref<Task[]>([]);
