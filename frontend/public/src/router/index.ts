@@ -7,7 +7,7 @@ import TaskForm from '../components/tasks/TaskForm.vue';
 import TaskOverView from "../views/TaskOverView.vue";
 
 const routes: Array<RouteRecordRaw> = [
-    { path: '/', component: TaskOverView },
+    { path: '/task-overview', component: TaskOverView },
     { path: '/calendar', component: CalendarView },
     { path: '/task/:id', component: TaskDetailsView, name: 'TaskDetailsView' },
     { path: '/add-task', component: TaskForm, name: 'AddTask' },
@@ -19,3 +19,4 @@ const router = createRouter({
 });
 
 export default router;
+
