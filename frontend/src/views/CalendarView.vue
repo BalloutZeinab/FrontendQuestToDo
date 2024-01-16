@@ -11,9 +11,9 @@
 
 <script setup lang="ts">
 import axios from 'axios';
-import DateFilter from '../components/filters/DateFilter.vue';
-import MonthFilter from '../components/filters/MonthFilter.vue';
-import TaskList from "../components/tasks/TaskList.vue";
+import DateFilter from '@/components/filters/DateFilter.vue';
+import MonthFilter from '@/components/filters/MonthFilter.vue';
+import TaskList from "@/components/tasks/TaskList.vue";
 import {onMounted, ref} from "vue";
 
 interface Task {
@@ -29,6 +29,7 @@ const fetchTasks = async () => {
   try {
     const response = await axios.get<Task[]>('/api/tasks');
     tasks.value = response.data;
+    console.log(tasks.value);
     filterTasksByDate(); // Filtern nach aktuellem Datum beim Laden der Aufgaben
   } catch (error) {
     console.error('Fehler beim Abrufen der Aufgaben:', error);
@@ -37,7 +38,11 @@ const fetchTasks = async () => {
 
 const filterTasksByDate = (date?: string) => {
   filteredTasks.value = date
-      ? tasks.value.filter(task => task.startDate === date)
+      ? tasks.value.filter(task => {
+        const taskDate = new Date(task.startDate);
+        const formattedTaskDate = taskDate.toISOString().split('T')[0]; // Format: 'YYYY-MM-DD'
+        return formattedTaskDate === date;
+      })
       : tasks.value;
 };
 

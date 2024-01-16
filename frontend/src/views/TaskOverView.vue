@@ -1,10 +1,21 @@
 <template>
   <div class="task-overview-container">
-    <div class="task-card" v-for="task in filteredTasks" :key="task.id">
+    <router-link
+        v-for="task in filteredTasks"
+        :key="task.id"
+        :to="{ name: 'TaskDetailsView', params: { id: task.id }}"
+        class="task-card"
+    >
       <h3>{{ task.title }}</h3>
       <p>{{ task.description }}</p>
-      <!-- Other task details -->
-    </div>
+      <div class="task-meta">
+        <span>{{ formatDate(task.startDate) }}</span>
+        <span class="status" :class="{ completed: task.completed }">
+          {{ task.completed ? 'Abgeschlossen' : 'Offen' }}
+        </span>
+      </div>
+      <!-- Andere Details der Aufgabe -->
+    </router-link>
 
     <!-- Add Task Button triggers TaskForm modal -->
     <button @click="showTaskForm = true" class="add-task-button">Neue Aufgabe hinzufügen</button>
@@ -33,6 +44,11 @@ interface Task {
 const tasks = ref<Task[]>([]);
 const filteredTasks = ref<Task[]>([]);
 const showTaskForm = ref(false);
+
+const formatDate = (dateString: string) => {
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString(undefined, options);
+};
 
 const fetchTasks = async () => {
   try {

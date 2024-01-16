@@ -7,7 +7,7 @@
 
 
 <script setup lang="ts">
-import AppHeader from "../src/components/common/AppHeader.vue";
+import AppHeader from "@/components/common/AppHeader.vue";
 </script>
 
 <style>
@@ -22,6 +22,8 @@ import AppHeader from "../src/components/common/AppHeader.vue";
   --error-red: #ff3860; /* Error Red color */
   --completed-color: #4CAF50; /* Completed color */
   --darker-teal: #006666; /* Darker teal color, manually calculated */
+  --red: #ff0000; /* Beispiel: Rotes Farbcode */
+  --darker-red: #cc0000;
 }
 
 body {

@@ -1,10 +1,5 @@
 <template>
   <div class="task-list">
-    <AppHeader />
-    <main>
-      <h2>Aufgabenübersicht</h2>
-      <DateFilter @filterByDate="handleFilterByDate" />
-      <MonthFilter @filterByMonth="handleFilterByMonth" />
       <div class="task-container">
         <TaskListItem
             v-for="task in tasks"
@@ -13,7 +8,6 @@
             @toggleComplete="fetchTasks"
         />
       </div>
-    </main>
   </div>
 </template>
 

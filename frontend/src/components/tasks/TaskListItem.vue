@@ -6,6 +6,7 @@
     <button class="complete-button" @click="toggleComplete">
       {{ task.completed ? 'Als unvollständig markieren' : 'Als abgeschlossen markieren' }}
     </button>
+    <button class="delete-button" @click="deleteTask">Aufgabe löschen</button>
   </div>
 </template>
 
@@ -26,7 +27,7 @@ const props = defineProps({
   }
 });
 
-const emits = defineEmits(['toggleComplete']);
+const emits = defineEmits(['toggleComplete', 'deleteTask']);
 
 const toggleComplete = async () => {
   try {
@@ -39,6 +40,15 @@ const toggleComplete = async () => {
   }
 };
 
+const deleteTask = async () => {
+  try {
+    await axios.delete(`http://localhost:8080/api/tasks/${props.task.id}`);
+    emits('deleteTask', props.task.id);
+    console.log('Aufgabe erfolgreich gelöscht.');
+  } catch (error) {
+    console.error('Fehler beim Löschen der Aufgabe:', error);
+  }
+};
 const formatDate = (dateString: string) => {
   const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(dateString).toLocaleDateString(undefined, options);
@@ -65,6 +75,19 @@ const formatDate = (dateString: string) => {
 
 .complete-button:hover {
   background-color: var(--darker-teal);
+}
+
+.delete-button {
+  background-color: var(--red);
+  color: var(--ivory-white);
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete-button:hover {
+  background-color: var(--darker-red);
 }
 
 </style>

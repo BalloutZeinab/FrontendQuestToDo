@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import TaskForm from '../../tasks/TaskForm.vue';
+import TaskForm from '@/components/tasks/TaskForm.vue';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
@@ -40,5 +40,3 @@ describe('TaskForm.vue', () => {
         axiosMock.restore();
     });
 });
-
-

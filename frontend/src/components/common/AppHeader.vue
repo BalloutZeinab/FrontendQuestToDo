@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <nav class="navigation">
-      <router-link to="/" class="nav-item">Home</router-link>
+      <router-link to="/calendar" class="nav-item">Calendar</router-link>
       <router-link to="/task-overview" class="nav-item">Task Overview</router-link>
       <!-- Weitere Links hier einfügen -->
     </nav>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
-import TaskDetails from '../components/tasks/TaskDetails.vue';
+import TaskDetails from '@/components/tasks/TaskDetails.vue';
 
 interface Task {
   id: number;
@@ -38,6 +38,7 @@ const fetchTaskDetails = async (taskId: number): Promise<Task | null> => {
       <h2>Aufgabendetails</h2>
       <TaskDetails :task="selectedTask" v-if="selectedTask" />
       <p v-else class="not-found-message">Die ausgewählte Aufgabe wurde nicht gefunden.</p>
+      <router-link to="/task-overview" class="back-link">Zurück zur Aufgabenübersicht</router-link>
     </main>
   </div>
 </template>

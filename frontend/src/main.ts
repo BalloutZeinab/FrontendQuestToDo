@@ -11,4 +11,5 @@ const app = createApp(App);
 // Globales zur Verfügung stellen von axios
 app.config.globalProperties.$axios = axios;
 
-app.use(router).mount('#app');
+app.use(router)
+    .mount('#app');
